@@ -34,10 +34,9 @@ function oldScrabbleScorer(word) {
 // don't change the names or your program won't work as expected. //
 
 function initialPrompt() {
-   console.log("Let's play some scrabble! Enter a word:");
-   let userWord = input.question();
-   //console.log(oldScrabbleScorer(userWord));
-   return userWord;
+  console.log("Let's play some Scrabble!\n");
+  let userWord = input.question("Enter a word to score: ");
+  return userWord;
 }
 
 //let newPointStructure;
@@ -82,13 +81,13 @@ function scrabbleScorer(word) {
  }
 
 const scoringAlgorithms = [ 
-   { name: "Simple Score", description: "Each letter is worth 1 point.", scorerFunction: simpleScorer },
-   { name: "Bonus Vowels", description: "Vowels are 3 pts, consonants are 1 pt.", scorerFunction: vowelBonusScorer },
-   { name: "Scrabble", description: "Uses scrabble point system.", scorerFunction: scrabbleScorer }
+   { name: "Simple", description: "One point per character", scorerFunction: simpleScorer },
+   { name: "Vowel Bonus", description: "Vowels are worth 3 points", scorerFunction: vowelBonusScorer },
+   { name: "Scrabble", description: "Uses scrabble point system", scorerFunction: scrabbleScorer }
  ];
 
 function scorerPrompt() {
-   console.log("Which scoring algorithm would you like to use?");
+   console.log("Which scoring algorithm would you like to use?\n");
    scoringAlgorithms.forEach((algorithm, index) => {
      console.log(`${index} - ${algorithm.name}: ${algorithm.description}`);
    });
@@ -117,4 +116,3 @@ module.exports = {
 	runProgram: runProgram,
 	scorerPrompt: scorerPrompt
 };
- 
